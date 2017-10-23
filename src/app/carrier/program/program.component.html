@@ -1,0 +1,78 @@
+<div class="card m-4">
+    <h4 class="card-header">Program</h4>
+    <div class="card-block">
+
+            <div *ngIf="showMessage()" class="alert alert-success alert-dismissible" role="alert">
+                {{getMessage()}}
+                <button type="button" class="close" (click)="clearMessage()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <table class="table table-bordered">
+                <tbody>
+                    <tr><th>ID</th><th>Name</th></tr>
+                    <tr><td>{{program.id}}</td><td>{{program.name}}</td></tr>
+                    <tr><th>Begin Date</th><th>Exipration Date</th></tr>
+                    <tr>
+                    <td>{{program.beginDate}}</td>
+                    <td>{{program.expirationDate}}</td>
+                    </tr>
+                    <tr>
+                    <th>Active</th>
+                    <th></th>
+                    </tr>
+                    <tr>
+                        <td>{{program.active}}</td>
+                        <td *ngIf="program.active">
+                            <button type="button" (click)="openConfirm(content, program)"
+                                class="btn btn-xs btn-danger" title="Click to Inactivate" id="inactivate">Inactivate</button>
+                        </td>
+                        <td *ngIf="!program.active">
+                            <button type="button" (click)="openConfirm(content, program)"
+                                class="btn btn-xs btn-success" title="Click to Activate" id="activate">Activate</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table class="table table-bordered">
+            <tbody>
+                <tr><th>Offer Eligibility Days</th><th>Eligibile Countries</th><th>Eligibile Provinces</th></tr>
+                <tr><td>{{program.offerEligibilityDays}}</td><td>{{program.eligibleCountries}}</td><td>{{program.eligibleProvinces}}</td></tr>
+                <tr><th>Discount Type</th><th>Score Discount</th><th></th></tr>
+                <tr><td>{{program.discountType}}</td><td>{{program.scoreDiscount}}</td><td></td></tr>
+            </tbody>
+            </table>
+                
+            <table class="table table-bordered">
+            <tbody>
+                <tr><th>Insurance Name</th><th>Contact Information</th></tr>
+                <tr><td>{{program.insuranceName}}</td><td>{{program.contactInfo}}</td></tr>
+                <tr><th>Company URL</th><th>Company Logo</th></tr>
+                <tr><td>{{program.companyUrl}}</td><td>{{program.companyLogo}}</td></tr>
+                <tr><th>Contracted OEMs</th><th></th></tr>
+                <tr><td>{{program.contractedOEMs}}</td><td></td></tr>
+            </tbody>
+            </table>
+            
+    </div>
+</div>
+
+<button (click)="goBack()" class="btn btn-primary">Back</button>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Confirm</h5>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="c('Yes')" id="yes">Yes</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close')" id="no">No</button>
+    </div>
+</ng-template>

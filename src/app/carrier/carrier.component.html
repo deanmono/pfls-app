@@ -1,0 +1,30 @@
+
+<div class="card m-4">
+  <h4 class="card-header">Carrier</h4>
+  <div class="card-block">
+      <table class="table table-bordered">
+          <thead>
+          <tr><th>ID</th><th>Name</th></tr>
+          </thead>
+          <tbody>
+          <tr><td>{{carrier.id}}</td><td>{{carrier.name}}</td></tr>
+          </tbody>
+        </table>    
+  </div>
+</div>
+
+<div class="card m-4">
+  <h4 class="card-header">Programs</h4>
+  <div class="card-block">
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr><th>ID</th><th>Name</th><th>Active</th><th>Begin Date</th><th>Expiration Date</th></tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let program of carrier.programs" (click)="onSelect(program)" class="clickable">
+          <td>{{program.id}}</td><td>{{program.name}}</td><td>{{program.active}}</td><td>{{program.beginDate}}</td><td>{{program.expirationDate}}</td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
