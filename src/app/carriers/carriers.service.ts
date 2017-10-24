@@ -35,6 +35,12 @@ export class CarriersService {
     this.CARRIERS.push(new Carrier());
     this.CARRIERS[2].id = 3;
     this.CARRIERS[2].name = 'Carrier Three';
+    this.CARRIERS[2].programContactName = 'John Smith';
+    this.CARRIERS[2].programContactEmail = 'jsmith@somecarrier.com';
+    this.CARRIERS[2].programContactPhone = '555-555-5555';
+    this.CARRIERS[2].technicalContactName = 'Joe Jones';
+    this.CARRIERS[2].technicalContactEmail = 'jjones@somecarrier.com';
+    this.CARRIERS[2].technicalContactPhone = '555-555-5556';
     this.CARRIERS[2].programs = [];
 
     this.CARRIERS[2].programs.push(new Program());
@@ -94,6 +100,20 @@ export class CarriersService {
       }
     }
     return programs;
+  }
+
+  addProgramFake(program: Program):boolean{
+    let nextId = this.getProgramsFake().length + 1;
+    let carriers = this.getCarriersFake();
+    for(let c of carriers){
+      if(c.id == program.carrierId){
+        program.id = nextId;
+        program.active = true;
+        c.programs.push(program);
+        return true;
+      }
+    }
+    return false;
   }
 
 }

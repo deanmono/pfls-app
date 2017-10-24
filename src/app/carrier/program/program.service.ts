@@ -31,4 +31,9 @@ export class ProgramService {
     return Promise.resolve(result);
   }
 
+  addProgram(program: Program){
+    let result = this.carriersService.addProgramFake(program);
+    return Promise.resolve(result);
+  }
+
 }

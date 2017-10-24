@@ -1,0 +1,96 @@
+
+<div class="card m-4">
+    <h4 class="card-header">Add Program</h4>
+    <div class="card-block">
+
+            <!--div *ngIf="showMessage()" class="alert alert-success alert-dismissible" role="alert">
+                {{getMessage()}}
+                <button type="button" class="close" (click)="clearMessage()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div-->
+            <form [formGroup]="programForm">
+                <div class="col-xs-12">
+                  <div class="row mt-4">
+                    <div class="col-sm-12 pb-3">
+                      <label for="exampleFirst">Program Name</label>
+                      <input type="text" class="form-control" id="name" formControlName="name">
+                    </div>
+                    <div class="col-sm-6 pb-3">
+                        <label for="exampleFirst">Begin Date</label>
+                        <input type="text" class="form-control" id="beginDate" formControlName="beginDate">
+                    </div>
+                    <div class="col-sm-6 pb-3">
+                        <label for="exampleFirst">Expiration Date</label>
+                        <input type="text" class="form-control" id="expirationDate" formControlName="expirationDate">
+                    </div>
+
+                    <div class="col-sm-6 pb-3">
+                        <label for="exampleFirst">Eligible Countries</label>
+                        <input type="text" class="form-control" id="exampleFirst" formControlName="eligibleCountries">
+                    </div>
+                    <div class="col-sm-6 pb-3">
+                        <label for="exampleFirst">Eligible Provinces</label>
+                        <input type="text" class="form-control" id="exampleFirst" formControlName="eligibleProvinces">
+                    </div>
+
+                    <div class="col-sm-4 pb-3">
+                        <label for="exampleFirst">Offer Eligibility Days</label>
+                        <input type="text" class="form-control" id="exampleFirst" formControlName="offerEligibilityDays">
+                    </div>
+                    <div class="col-sm-4 pb-3">
+                        <label for="exampleFirst">Discount Type</label>
+                        <input type="text" class="form-control" id="discountType" formControlName="discountType">
+                    </div>
+                    <div class="col-sm-4 pb-3">
+                        <label for="exampleFirst">Score Discount</label>
+                        <input type="text" class="form-control" id="scoreDiscount" formControlName="scoreDiscount">
+                    </div>
+
+                    <div class="col-sm-6 pb-3">
+                        <label for="exampleFirst">Insurance Name</label>
+                        <input type="text" class="form-control" id="insuranceName" formControlName="insuranceName">
+                    </div>
+                    <div class="col-sm-6 pb-3">
+                        <label for="exampleFirst">Contact Information</label>
+                        <input type="text" class="form-control" id="contactInfo" formControlName="contactInfo">
+                    </div>
+                    <div class="col-sm-6 pb-3">
+                        <label for="exampleFirst">Company URL</label>
+                        <input type="text" class="form-control" id="companyUrl" formControlName="companyUrl">
+                    </div>
+                    <div class="col-sm-6 pb-3">
+                        <label for="exampleFirst">Company Logo</label>
+                        <input type="text" class="form-control" id="companyLogo" formControlName="companyLogo">
+                    </div>
+
+                    <div class="col-sm-12 pb-3">
+                        <label for="exampleFirst">Contracted OEMs</label>
+                        <input type="text" class="form-control" id="contractedOEMs" formControlName="contractedOEMs">
+                    </div>
+                    <div class="col-sm-12 pb-3">
+                        <button type="button" (click)="addProgram()" class="btn btn-primary">Add</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+                
+    </div>
+</div>
+
+<button (click)="goBack()" class="btn btn-primary">Back</button>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Alert</h5>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Program added.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="c('Yes')" id="yes">OK</button>
+    </div>
+</ng-template>

@@ -5,13 +5,15 @@ import { RouterModule, Routes } from '@angular/router';
 import {CarriersComponent} from '../carriers/carriers.component';
 import {CarrierComponent} from '../carrier/carrier.component';
 import {ProgramComponent} from '../carrier/program/program.component';
+import {ProgramAddComponent} from '../carrier/program/program-add/program-add.component';
 
- 
+
 const routes: Routes = [
   { path: '', redirectTo: '/carriers', pathMatch: 'full' },
   { path: 'carriers', component: CarriersComponent },
   { path: 'carrier/:id', component: CarrierComponent },
-  { path: 'carrier/program/:id', component: ProgramComponent }
+  { path: 'carrier/program/:id', component: ProgramComponent },
+  { path: 'carrier/program/add/:id', component: ProgramAddComponent }
 ];
  
 @NgModule({

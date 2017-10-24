@@ -1,13 +1,29 @@
 
 <div class="card m-4">
-  <h4 class="card-header">Carrier</h4>
+  <h4 class="card-header">Insurance Carrier</h4>
   <div class="card-block">
       <table class="table table-bordered">
-          <thead>
-          <tr><th>ID</th><th>Name</th></tr>
-          </thead>
           <tbody>
-          <tr><td>{{carrier.id}}</td><td>{{carrier.name}}</td></tr>
+            <tr><th>ID</th><th colspan="2">Name</th></tr>
+            <tr><td>{{carrier.id}}</td><td colspan="2">{{carrier.name}}</td></tr>
+            <tr><th>Program Contact Name</th><th>Program Contact Email</th><th>Program Contact Phone</th></tr>
+            <tr>
+              <td>{{carrier.programContactName}}&nbsp;</td>
+              <td>{{carrier.programContactEmail}}</td>
+              <td>{{carrier.programContactPhone}}</td>
+            </tr>
+            <tr><th>Technical Contact Name</th><th>Technical Contact Email</th><th>Technical Contact Phone</th></tr>
+            <tr>
+              <td>{{carrier.technicalContactName}}&nbsp;</td>
+              <td>{{carrier.technicalContactEmail}}</td>
+              <td>{{carrier.technicalContactPhone}}</td>
+            </tr>
+            <tr><th>Algorithm Provided</th><th>Algorithm Name</th><th>Algorithm Type</th></tr>
+            <tr>
+              <td>{{carrier.algorithmProvided}}&nbsp;</td>
+              <td>{{carrier.algorithmName}}</td>
+              <td>{{carrier.algorithmType}}</td>
+            </tr>
           </tbody>
         </table>    
   </div>

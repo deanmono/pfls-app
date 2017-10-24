@@ -37,14 +37,6 @@ export class ProgramComponent implements OnInit {
     this.location.back();
   }
 
-  toggleActive(program:Program):void{
-    let go = confirm('Are you sure?');
-    if(go){
-      this.programService.setActiveStatus(program.id, !program.active).then(
-        response => this.message = "Status updated."
-      );
-    }
-  }
 
   showMessage():boolean{
     return (this.message != null);
@@ -58,6 +50,7 @@ export class ProgramComponent implements OnInit {
     this.message = null;
   }
 
+
   showDialog:boolean = false;
   showConfirm():boolean{
     return this.showDialog;
@@ -65,11 +58,10 @@ export class ProgramComponent implements OnInit {
 
 
 
-  closeResult: string;
-
   openConfirm(content, program:Program) {
     this.modalService.open(content).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
+      let closeResult = `Closed with: ${result}`;
+      console.log(closeResult);
 
       if(result=='Yes'){
         this.programService.setActiveStatus(program.id, !program.active).then(
@@ -78,7 +70,8 @@ export class ProgramComponent implements OnInit {
       }
 
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      let closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      console.log(closeResult);
     });
   }
 
@@ -90,6 +83,10 @@ export class ProgramComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  gotoAdd(program:Program){
+    this.router.navigate(['/carrier/program/add', program.id]);
   }
 
 }
