@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'carriers', component: CarriersComponent },
   { path: 'carrier/:id', component: CarrierComponent },
   { path: 'carrier/program/:id', component: ProgramComponent },
-  { path: 'carrier/program/add/:id', component: ProgramAddComponent }
+  { path: 'carrier/programs/clone/:id', component: ProgramAddComponent },
+  { path: 'carrier/programs/add/:cid', component: ProgramAddComponent }
 ];
  
 @NgModule({

@@ -11,6 +11,7 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
   selector: 'app-program-add',
   templateUrl: './program-add.component.html',
@@ -50,34 +51,46 @@ export class ProgramAddComponent implements OnInit {
   }
 
   @Input() program:Program = new Program();
+  carrierId:number;
   
   ngOnInit() {
-    this.route.paramMap
-    .switchMap((params: ParamMap) => this.programService.getProgram(+params.get('id')))
-    .subscribe(program => {
-      let copy = Object.assign({}, program);
-      this.program = copy;
 
-      this.programForm = this.formBuilder.group({
-        name: program.name + ' Copy',
-        carrierId: program.carrierId,
-        active: program.active,
-        contactInfo: program.contactInfo,
-        companyLogo: program.companyLogo,
-        companyUrl: program.companyUrl,
-        offerEligibilityDays: program.offerEligibilityDays,
-        contractedOEMs: program.contractedOEMs,
-        insuranceName: program.insuranceName,
-        scoreDiscount: program.scoreDiscount,
-        discountType: program.discountType,
-        eligibleCountries: program.eligibleCountries,
-        eligibleProvinces: program.eligibleProvinces,
-        beginDate: program.beginDate,
-        expirationDate: program.expirationDate
-      });
+    this.route.params.subscribe((params: any) => {
+      if (params.id) {
+        console.log('cloning program');
+
+        this.route.paramMap
+        .switchMap((params: ParamMap) => this.programService.getProgram(+params.get('id')))
+        .subscribe(program => {
+          let copy = Object.assign({}, program);
+          this.program = copy;
+    
+          this.programForm = this.formBuilder.group({
+            name: program.name + ' Copy',
+            carrierId: program.carrierId,
+            active: program.active,
+            contactInfo: program.contactInfo,
+            companyLogo: program.companyLogo,
+            companyUrl: program.companyUrl,
+            offerEligibilityDays: program.offerEligibilityDays,
+            contractedOEMs: program.contractedOEMs,
+            insuranceName: program.insuranceName,
+            scoreDiscount: program.scoreDiscount,
+            discountType: program.discountType,
+            eligibleCountries: program.eligibleCountries,
+            eligibleProvinces: program.eligibleProvinces,
+            beginDate: program.beginDate,
+            expirationDate: program.expirationDate
+          });
+        
+        });
   
-
+      } else {
+          console.log('carrierId = ' + params.cid);
+          this.carrierId = +params.cid;
+      }
     });
+
   }
 
   goBack(): void{
@@ -87,6 +100,7 @@ export class ProgramAddComponent implements OnInit {
   addProgram(){
     console.log(this.programForm.value);
     console.log(JSON.stringify(this.programForm.value));
+
     let program = new Program();
     let values = this.programForm.value;
     for(let x in values){
@@ -95,11 +109,13 @@ export class ProgramAddComponent implements OnInit {
 
     program.active = true;
     program.id = 9;
+    if(this.carrierId && this.carrierId>0)
+      program.carrierId = this.carrierId;
 
     let result = this.programService.addProgram(program);
     if(result){
       alert('Program added.');
-      this.router.navigate(['/carrier', this.programForm.value.carrierId]);
+      this.router.navigate(['/carrier', program.carrierId]);
     }
 
   }

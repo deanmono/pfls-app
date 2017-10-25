@@ -32,14 +32,15 @@ export class CarrierComponent implements OnInit {
       .subscribe(carrier => {this.carrier = carrier;
         this.programs = this.carrierService.getPrograms(carrier.id);
       });
-    //this.route.paramMap
-    //  .switchMap((params: ParamMap) => this.carrierService.getPrograms(+params.get('id')))
-    //  .subscribe(programs => this.programs = programs);
   }
 
   onSelect(program:Program){
     console.log('program.id = ' + program.id);
     this.router.navigate(['/carrier/program', program.id]);
+  }
+
+  gotoProgramAdd(cid:number){
+    this.router.navigate(['/carrier/programs/add', cid]);
   }
 
 }

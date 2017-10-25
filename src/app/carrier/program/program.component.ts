@@ -86,7 +86,7 @@ export class ProgramComponent implements OnInit {
   }
 
   gotoAdd(program:Program){
-    this.router.navigate(['/carrier/program/add', program.id]);
+    this.router.navigate(['/carrier/programs/clone', program.id]);
   }
 
 }
