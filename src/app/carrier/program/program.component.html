@@ -30,7 +30,7 @@
                         </td>
                         <td *ngIf="!program.active">
                             <button type="button" (click)="gotoAdd(program)"
-                                class="btn btn-xs btn-success" title="Click to clone this Program" id="cloneProgram">Clone Program</button>
+                                class="btn btn-xs btn-primary" title="Click to clone this Program" id="cloneProgram">Clone Program</button>
                         </td>
                     </tr>
                 </tbody>
@@ -40,7 +40,7 @@
             <tbody>
                 <tr><th>Offer Eligibility Days</th><th>Eligible Countries</th><th>Eligible Provinces</th></tr>
                 <tr><td>{{program.offerEligibilityDays}}&nbsp;</td><td>{{program.eligibleCountries}}</td><td>{{program.eligibleProvinces}}</td></tr>
-                <tr><th>Discount Type</th><th>Score Discount</th><th></th></tr>
+                <tr><th>Discount Type</th><th>Discount Schedule</th><th></th></tr>
                 <tr><td>{{program.discountType}}&nbsp;</td><td>{{program.scoreDiscount}}</td><td></td></tr>
             </tbody>
             </table>

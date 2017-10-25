@@ -64,7 +64,7 @@ export class ProgramAddComponent implements OnInit {
         .subscribe(program => {
           let copy = Object.assign({}, program);
           this.program = copy;
-    
+
           this.programForm = this.formBuilder.group({
             name: program.name + ' Copy',
             carrierId: program.carrierId,
@@ -97,7 +97,7 @@ export class ProgramAddComponent implements OnInit {
     this.location.back();
   }
 
-  addProgram(){
+  addProgram(content){
     console.log(this.programForm.value);
     console.log(JSON.stringify(this.programForm.value));
 
@@ -108,16 +108,25 @@ export class ProgramAddComponent implements OnInit {
     }
 
     program.active = true;
-    program.id = 9;
+    program.id = this.programService.getNextID(); // until api is working correctly
     if(this.carrierId && this.carrierId>0)
       program.carrierId = this.carrierId;
 
     let result = this.programService.addProgram(program);
-    if(result){
-      alert('Program added.');
-      this.router.navigate(['/carrier', program.carrierId]);
-    }
+    if(result)
+      this.openAlert(content, program.carrierId);
 
+  }
+
+
+  openAlert(content, id) {
+    this.modalService.open(content).result.then((result) => {
+      this.router.navigate(['/carrier', id]);
+      
+    }, (reason) => {
+      this.router.navigate(['/carrier', id]);
+      
+    });
   }
 
 }

@@ -13,6 +13,12 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ProgramService {
 
+  // until api is working correctly
+  nextID:number = 5;
+  getNextID(){
+    return this.nextID++;
+  }
+
   constructor(private carriersService:CarriersService,
               private http: Http) { }
 
@@ -22,7 +28,6 @@ export class ProgramService {
   }
 
   setActiveStatus(id:number, status:boolean): Promise<boolean>{
-    //Content-Type: application/json
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
     let options = new RequestOptions({ headers: headers });

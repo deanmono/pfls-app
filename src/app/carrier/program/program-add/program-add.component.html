@@ -18,32 +18,32 @@
                     </div>
                     <div class="col-sm-6 pb-3">
                         <label for="exampleFirst">Begin Date</label>
-                        <input type="text" class="form-control" id="beginDate" formControlName="beginDate">
+                        <input type="date" class="form-control" id="beginDate" formControlName="beginDate">
                     </div>
                     <div class="col-sm-6 pb-3">
                         <label for="exampleFirst">Expiration Date</label>
-                        <input type="text" class="form-control" id="expirationDate" formControlName="expirationDate">
+                        <input type="date" class="form-control" id="expirationDate" formControlName="expirationDate">
                     </div>
 
                     <div class="col-sm-6 pb-3">
                         <label for="exampleFirst">Eligible Countries</label>
-                        <input type="text" class="form-control" id="exampleFirst" formControlName="eligibleCountries">
+                        <input type="text" class="form-control" id="eligibleCountries" formControlName="eligibleCountries">
                     </div>
                     <div class="col-sm-6 pb-3">
                         <label for="exampleFirst">Eligible Provinces</label>
-                        <input type="text" class="form-control" id="exampleFirst" formControlName="eligibleProvinces">
+                        <input type="text" class="form-control" id="eligibleProvinces" formControlName="eligibleProvinces">
                     </div>
 
                     <div class="col-sm-4 pb-3">
                         <label for="exampleFirst">Offer Eligibility Days</label>
-                        <input type="text" class="form-control" id="exampleFirst" formControlName="offerEligibilityDays">
+                        <input type="text" class="form-control" id="offerEligibilityDays" formControlName="offerEligibilityDays">
                     </div>
                     <div class="col-sm-4 pb-3">
                         <label for="exampleFirst">Discount Type</label>
                         <input type="text" class="form-control" id="discountType" formControlName="discountType">
                     </div>
                     <div class="col-sm-4 pb-3">
-                        <label for="exampleFirst">Score Discount</label>
+                        <label for="exampleFirst">Discount Schedule</label>
                         <input type="text" class="form-control" id="scoreDiscount" formControlName="scoreDiscount">
                     </div>
 
@@ -69,7 +69,7 @@
                         <input type="text" class="form-control" id="contractedOEMs" formControlName="contractedOEMs">
                     </div>
                     <div class="col-sm-12 pb-3">
-                        <button type="button" (click)="addProgram()" class="btn btn-primary">Add</button>
+                        <button type="button" id="addProgram" (click)="addProgram(content)" class="btn btn-primary">Add</button>
                     </div>
                   </div>
                 </div>
@@ -81,8 +81,8 @@
 <button (click)="goBack()" class="btn btn-primary">Back</button>
 
 <ng-template #content let-c="close" let-d="dismiss">
-    <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title">Alert</h5>
+    <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">Success</h5>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
         </button>
