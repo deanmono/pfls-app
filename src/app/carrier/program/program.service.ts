@@ -4,36 +4,45 @@ import { CarriersService } from '../../carriers/carriers.service';
 
 import {Program} from './program';
 
+import { Http, RequestOptions, Headers } from '@angular/http';
+import { HttpHeaders } from '@angular/common/http';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
 @Injectable()
 export class ProgramService {
 
-  constructor(private carriersService:CarriersService) { }
+  constructor(private carriersService:CarriersService,
+              private http: Http) { }
 
-  getProgram(id:number): Promise<Program>{
-    let progs = this.carriersService.getProgramsFake();
-    for(let program of progs){
-      if(program.id==id)
-        return Promise.resolve(program);
-    }
-    return null;
+  getProgram(id:number): Observable<Program>{
+    console.log('programId = '+id);
+    return this.http.get("http://localhost:8080/programs/"+id).map(response => response.json() as Program);
   }
 
   setActiveStatus(id:number, status:boolean): Promise<boolean>{
-    let progs = this.carriersService.getProgramsFake();
-    let result = false;
-    for(let program of progs){
-      if(program.id == id){
-        program.active = status;
-        result = true;
-        break;
-      }
-    }
-    return Promise.resolve(result);
+    //Content-Type: application/json
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    let options = new RequestOptions({ headers: headers });
+    console.log('sending patch');
+    this.http.patch('http://localhost:8080/programs/'+id, {active:false}, options).toPromise().then();
+    return Promise.resolve(true);
   }
 
-  addProgram(program: Program){
-    let result = this.carriersService.addProgramFake(program);
-    return Promise.resolve(result);
+  addProgram(program: Program) {
+    return this.http.post('http://localhost:8080/programs', program)
+      .subscribe(
+        res => {
+          console.log(res);
+          return true;
+        },
+        err => {
+          console.log("Error occured");
+          return false;
+        }
+      );
   }
 
 }

@@ -59,7 +59,7 @@ export class ProgramAddComponent implements OnInit {
       this.program = copy;
 
       this.programForm = this.formBuilder.group({
-        name: program.name,
+        name: program.name + ' Copy',
         carrierId: program.carrierId,
         active: program.active,
         contactInfo: program.contactInfo,
@@ -86,20 +86,22 @@ export class ProgramAddComponent implements OnInit {
 
   addProgram(){
     console.log(this.programForm.value);
+    console.log(JSON.stringify(this.programForm.value));
     let program = new Program();
     let values = this.programForm.value;
     for(let x in values){
       program[x] = values[x];
     }
-    this.programService.addProgram(program).then(
-      result => {
-        console.log('done');
-        console.log(result);
-        alert('Program Added');
-        if(result)
-          this.router.navigate(['/carrier', this.programForm.value.carrierId]);
-      }
-    );
+
+    program.active = true;
+    program.id = 9;
+
+    let result = this.programService.addProgram(program);
+    if(result){
+      alert('Program added.');
+      this.router.navigate(['/carrier', this.programForm.value.carrierId]);
+    }
+
   }
 
 }

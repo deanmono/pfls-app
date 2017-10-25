@@ -37,7 +37,7 @@
         <tr><th>ID</th><th>Name</th><th>Active</th><th>Begin Date</th><th>Expiration Date</th></tr>
         </thead>
         <tbody>
-        <tr *ngFor="let program of carrier.programs" (click)="onSelect(program)" class="clickable">
+        <tr *ngFor="let program of programs | async" (click)="onSelect(program)" class="clickable">
           <td>{{program.id}}</td><td>{{program.name}}</td><td>{{program.active}}</td><td>{{program.beginDate}}</td><td>{{program.expirationDate}}</td>
         </tr>
         </tbody>

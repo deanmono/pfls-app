@@ -1,7 +1,7 @@
 <div class="card m-4">
     <div class="list-group">
         <a href="javascript://" 
-          *ngFor="let carrier of carriers" (click)="onSelect(carrier)" 
+          *ngFor="let carrier of carriers | async" (click)="onSelect(carrier)" 
           class="list-group-item list-group-item-action">{{carrier.name}}</a>
     </div>
 </div>

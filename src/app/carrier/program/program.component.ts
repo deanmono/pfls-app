@@ -65,7 +65,7 @@ export class ProgramComponent implements OnInit {
 
       if(result=='Yes'){
         this.programService.setActiveStatus(program.id, !program.active).then(
-          response => this.message = "Status updated."
+          response => {this.message = "Status updated."; this.program.active = false;}
         );
       }
 

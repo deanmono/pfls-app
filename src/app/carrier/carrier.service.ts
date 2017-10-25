@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
-
+//TODO delete carriersservice?
 import { CarriersService } from '../carriers/carriers.service';
 import { Carrier} from './carrier';
 
 import {Program} from './program/program';
+import { Http }       from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CarrierService {
 
-  constructor(private carriersService: CarriersService) {}
+  constructor(private carriersService: CarriersService,
+              private http: Http) {}
 
   getEmptyCarrier():Carrier{
     let carrier = new Carrier();
@@ -16,27 +21,13 @@ export class CarrierService {
     return carrier;
   }
 
-  getCarrier(id:number): Promise<Carrier>{
+  getCarrier(id:number): Observable<Carrier>{
     console.log('carrierId = '+id);
-    let carriers = this.carriersService.getCarriersFake();
-    for(let carrier of carriers){
-      if(carrier.id == id){
-        carrier.programs = this.getPrograms(id);
-        return Promise.resolve(carrier);
-      }
-    }
-
-    return null;
+    return this.http.get("http://localhost:8080/carriers/"+id).map(response => response.json() as Carrier);
   }
 
-  getPrograms(id:number): Program[]{
-      let programs: Program[] = [];
-      let carriers = this.carriersService.getCarriersFake();
-      for(let carrier of carriers){
-        if(carrier.id == id)
-          return carrier.programs;
-      }
-      return programs;
+  getPrograms(id:number): Observable<Program[]>{
+    return this.http.get("http://localhost:8080/programs?carrierId="+id).map(response => response.json() as Program[]);
   }
 
 }

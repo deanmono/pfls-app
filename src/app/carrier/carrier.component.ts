@@ -9,6 +9,7 @@ import { ProgramService } from './program/program.service';
 
 import { Carrier } from './carrier';
 import { Program } from './program/program';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-carrier',
@@ -23,11 +24,17 @@ export class CarrierComponent implements OnInit {
               private router: Router) { }
 
   @Input() carrier: Carrier = new Carrier();
-
+  programs: Observable<Program[]>;
+  
   ngOnInit() {
     this.route.paramMap
       .switchMap((params: ParamMap) => this.carrierService.getCarrier(+params.get('id')))
-      .subscribe(carrier => this.carrier = carrier);
+      .subscribe(carrier => {this.carrier = carrier;
+        this.programs = this.carrierService.getPrograms(carrier.id);
+      });
+    //this.route.paramMap
+    //  .switchMap((params: ParamMap) => this.carrierService.getPrograms(+params.get('id')))
+    //  .subscribe(programs => this.programs = programs);
   }
 
   onSelect(program:Program){
