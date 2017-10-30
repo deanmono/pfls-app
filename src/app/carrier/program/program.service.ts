@@ -10,6 +10,9 @@ import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+import { environment } from '../../../environments/environment';
+
+
 @Injectable()
 export class ProgramService {
 
@@ -24,7 +27,7 @@ export class ProgramService {
 
   getProgram(id:number): Observable<Program>{
     console.log('programId = '+id);
-    return this.http.get("http://localhost:8080/programs/"+id).map(response => response.json() as Program);
+    return this.http.get(environment.apiURL + "/programs/"+id).map(response => response.json() as Program);
   }
 
   setActiveStatus(id:number, status:boolean): Promise<boolean>{
@@ -32,12 +35,12 @@ export class ProgramService {
     headers.append("Content-Type", "application/json");
     let options = new RequestOptions({ headers: headers });
     console.log('sending patch');
-    this.http.patch('http://localhost:8080/programs/'+id, {active:false}, options).toPromise().then();
+    this.http.patch(environment.apiURL + '/programs/'+id, {active:false}, options).toPromise().then();
     return Promise.resolve(true);
   }
 
   addProgram(program: Program) {
-    return this.http.post('http://localhost:8080/programs', program)
+    return this.http.post(environment.apiURL + '/programs', program)
       .subscribe(
         res => {
           console.log(res);

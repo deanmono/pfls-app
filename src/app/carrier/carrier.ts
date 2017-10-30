@@ -12,5 +12,4 @@ export class Carrier {
 	algorithmProvided:boolean;
 	algorithmName:string;
 	algorithmType:string;
-	programs: Program[];
 }

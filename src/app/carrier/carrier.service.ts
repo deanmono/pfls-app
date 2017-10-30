@@ -9,6 +9,8 @@ import { Http }       from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class CarrierService {
 
@@ -17,17 +19,16 @@ export class CarrierService {
 
   getEmptyCarrier():Carrier{
     let carrier = new Carrier();
-    carrier.programs = [];
     return carrier;
   }
 
   getCarrier(id:number): Observable<Carrier>{
     console.log('carrierId = '+id);
-    return this.http.get("http://localhost:8080/carriers/"+id).map(response => response.json() as Carrier);
+    return this.http.get(environment.apiURL + "/carriers/"+id).map(response => response.json() as Carrier);
   }
 
   getPrograms(id:number): Observable<Program[]>{
-    return this.http.get("http://localhost:8080/programs?carrierId="+id).map(response => response.json() as Program[]);
+    return this.http.get(environment.apiURL + "/programs?carrierId="+id).map(response => response.json() as Program[]);
   }
 
 }
