@@ -1,0 +1,108 @@
+{
+  "carriers": [
+    {
+      "id": 1,
+      "name": "Carrier One",
+      "programContactName": "John A Smith",
+      "programContactEmail": "jasmith@email.com",
+      "programContactPhone": "555-555-5555",
+      "technicalContactName": "John a Smith",
+      "technicalContactEmail": "jasmith@email.com",
+      "technicalContactPhone": "555-555-5555"
+    },
+    {
+      "id": 2,
+      "name": "Carrier Two",
+      "programContactName": "John B Smith",
+      "programContactEmail": "jbsmith@email.com",
+      "programContactPhone": "555-555-5555",
+      "technicalContactName": "John b Smith",
+      "technicalContactEmail": "jbsmith@email.com",
+      "technicalContactPhone": "555-555-5555"
+    },
+    {
+      "id": 3,
+      "name": "Carrier Three",
+      "programContactName": "John C Smith",
+      "programContactEmail": "jcsmith@email.com",
+      "programContactPhone": "555-555-5555",
+      "technicalContactName": "John c Smith",
+      "technicalContactEmail": "jcsmith@email.com",
+      "technicalContactPhone": "555-555-5555"
+    }
+  ],
+  "programs": [
+    {
+      "id": 1,
+      "name": "Program One",
+      "carrierId": 1,
+      "active": true,
+      "contactInfo": "You can reach us between 7:00am to 9:30pm",
+      "companyLogo": "http://www.supercoolinsurance.com/logo.png",
+      "companyUrl": "http://www.supercoolinsurance.com",
+      "offerEligibilityDays": 10,
+      "contractedOEMs": "FCA",
+      "insuranceName": "The name of the insurance",
+      "scoreDiscount": 50,
+      "discountType": "%",
+      "eligibleCountries": "USA",
+      "eligibleProvinces": "AL, AK, TX, IA, OH, IL, IN",
+      "beginDate": "2017-09-01",
+      "expirationDate": "2017-12-01"
+    },
+    {
+      "id": 2,
+      "name": "Program Two",
+      "carrierId": 2,
+      "active": true,
+      "contactInfo": "You can reach us between 7:00am to 9:30pm",
+      "companyLogo": "http://www.supercoolinsurance.com/logo.png",
+      "companyUrl": "http://www.supercoolinsurance.com",
+      "offerEligibilityDays": 10,
+      "contractedOEMs": "FCA",
+      "insuranceName": "The name of the insurance",
+      "scoreDiscount": 50,
+      "discountType": "%",
+      "eligibleCountries": "USA",
+      "eligibleProvinces": "AL, AK, TX, IA, OH, IL, IN",
+      "beginDate": "2017-09-01",
+      "expirationDate": "2017-12-01"
+    },
+    {
+      "id": 3,
+      "name": "Program Three",
+      "carrierId": 3,
+      "active": false,
+      "contactInfo": "You can reach us between 7:00am to 9:30pm",
+      "companyLogo": "http://www.supercoolinsurance.com/logo.png",
+      "companyUrl": "http://www.supercoolinsurance.com",
+      "offerEligibilityDays": 10,
+      "contractedOEMs": "FCA",
+      "insuranceName": "The name of the insurance",
+      "scoreDiscount": 50,
+      "discountType": "%",
+      "eligibleCountries": "USA",
+      "eligibleProvinces": "AL, AK, TX, IA, OH, IL, IN",
+      "beginDate": "2017-09-01",
+      "expirationDate": "2017-12-01"
+    },
+    {
+      "id": 4,
+      "name": "Program Four",
+      "carrierId": 3,
+      "active": true,
+      "contactInfo": "You can reach us between 7:00am to 9:30pm",
+      "companyLogo": "http://www.supercoolinsurance.com/logo.png",
+      "companyUrl": "http://www.supercoolinsurance.com",
+      "offerEligibilityDays": 10,
+      "contractedOEMs": "FCA",
+      "insuranceName": "The name of the insurance",
+      "scoreDiscount": 50,
+      "discountType": "%",
+      "eligibleCountries": "USA",
+      "eligibleProvinces": "AL, AK, TX, IA, OH, IL, IN",
+      "beginDate": "2017-09-01",
+      "expirationDate": "2017-12-01"
+    }
+  ]
+}

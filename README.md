@@ -16,6 +16,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `npm install` after cloning the project.  This only needs to be done once, or when new modules are added to the project.
 
+#### Mock REST Server
+
+Run `npm install -g json-server` to install a mock REST server.
+Run `json-server --watch exchange.json` to start the mock server.  Go to `https://github.com/typicode/json-server` for more info about json-server.
+
 #### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
