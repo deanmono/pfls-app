@@ -14,8 +14,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-program-add',
-  templateUrl: './program-add.component.html',
-  styleUrls: ['./program-add.component.css']
+  templateUrl: 'program-add.component.html',
+  styleUrls: ['program-add.component.css']
 })
 export class ProgramAddComponent implements OnInit {
   programForm = new FormGroup ({});
@@ -52,7 +52,7 @@ export class ProgramAddComponent implements OnInit {
 
   @Input() program:Program = new Program();
   carrierId:number;
-  
+
   ngOnInit() {
 
     this.route.params.subscribe((params: any) => {
@@ -82,9 +82,9 @@ export class ProgramAddComponent implements OnInit {
             beginDate: program.beginDate,
             expirationDate: program.expirationDate
           });
-        
+
         });
-  
+
       } else {
           console.log('carrierId = ' + params.cid);
           this.carrierId = +params.cid;
@@ -122,10 +122,10 @@ export class ProgramAddComponent implements OnInit {
   openAlert(content, id) {
     this.modalService.open(content).result.then((result) => {
       this.router.navigate(['/carrier', id]);
-      
+
     }, (reason) => {
       this.router.navigate(['/carrier', id]);
-      
+
     });
   }
 

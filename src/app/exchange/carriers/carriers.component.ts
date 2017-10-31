@@ -7,8 +7,8 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-carriers',
-  templateUrl: './carriers.component.html',
-  styleUrls: ['./carriers.component.css']
+  templateUrl: 'carriers.component.html',
+  styleUrls: ['carriers.component.css']
 })
 export class CarriersComponent implements OnInit {
 

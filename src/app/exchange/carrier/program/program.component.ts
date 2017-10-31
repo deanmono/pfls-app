@@ -13,8 +13,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-program',
-  templateUrl: './program.component.html',
-  styleUrls: ['./program.component.css']
+  templateUrl: 'program.component.html',
+  styleUrls: ['program.component.css']
 })
 export class ProgramComponent implements OnInit {
 
@@ -26,7 +26,7 @@ export class ProgramComponent implements OnInit {
 
   @Input() program:Program = new Program();
   message:string = null;
-  
+
   ngOnInit() {
     this.route.paramMap
     .switchMap((params: ParamMap) => this.programService.getProgram(+params.get('id')))

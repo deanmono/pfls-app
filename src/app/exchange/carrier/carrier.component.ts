@@ -13,8 +13,8 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-carrier',
-  templateUrl: './carrier.component.html',
-  styleUrls: ['./carrier.component.css']
+  templateUrl: 'carrier.component.html',
+  styleUrls: ['carrier.component.css']
 })
 export class CarrierComponent implements OnInit {
 
@@ -25,7 +25,7 @@ export class CarrierComponent implements OnInit {
 
   @Input() carrier: Carrier = new Carrier();
   programs: Observable<Program[]>;
-  
+
   ngOnInit() {
     this.route.paramMap
       .switchMap((params: ParamMap) => this.carrierService.getCarrier(+params.get('id')))
