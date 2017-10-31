@@ -2,12 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedRoutingModule } from './shared-routing.module';
+import { AppHeaderComponent } from './app-header/app-header.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    NgbModule.forRoot()
   ],
-  declarations: []
+  declarations: [AppHeaderComponent],
+  exports: [AppHeaderComponent]
 })
 export class SharedModule { }
