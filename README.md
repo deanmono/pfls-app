@@ -14,13 +14,15 @@ https://cccdrivetech.atlassian.net/wiki/spaces/CQ/overview
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.7.
 
-Run `npm install` after cloning the project.  This only needs to be done once, or when new modules are added to the project.
+Run `npm install -g @angular/cli` to install Anguler CLI.
+
+After cloning the x-ui project, run `npm install` from within the x-ui directory.  This only needs to be done once, or when new modules are added to the project.
 
 #### Mock REST Server
 
 Run `npm install -g json-server` to install a mock REST server.
 Run `json-server --watch exchange.json -p 8080` to start the mock server.  Go to `https://github.com/typicode/json-server` for more info about json-server.
-Open new terminal window and Run `npm start`
+Open a new terminal window and Run `npm start`
 
 #### Development server
 
