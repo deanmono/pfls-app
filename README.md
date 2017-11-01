@@ -19,7 +19,8 @@ Run `npm install` after cloning the project.  This only needs to be done once, o
 #### Mock REST Server
 
 Run `npm install -g json-server` to install a mock REST server.
-Run `json-server --watch exchange.json` to start the mock server.  Go to `https://github.com/typicode/json-server` for more info about json-server.
+Run `json-server --watch exchange.json -p 8080` to start the mock server.  Go to `https://github.com/typicode/json-server` for more info about json-server.
+Open new terminal window and Run `npm start`
 
 #### Development server
 
