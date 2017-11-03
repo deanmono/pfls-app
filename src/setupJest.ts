@@ -1,5 +1,7 @@
 import 'jest-preset-angular';
 
+Error.stackTraceLimit = 2
+
 // global mocks
 const mock = () => {
   let storage = {};
