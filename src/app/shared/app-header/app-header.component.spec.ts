@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing'
 
 import { AppHeaderComponent } from './app-header.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('AppHeaderComponent', () => {
   let component: AppHeaderComponent;
@@ -8,7 +10,8 @@ describe('AppHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppHeaderComponent ]
+      declarations: [ AppHeaderComponent ],
+      imports: [RouterTestingModule, NgbModule.forRoot()]
     })
     .compileComponents();
   }));
@@ -22,4 +25,12 @@ describe('AppHeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render title in a a tag', async(() => {
+    const fixture = TestBed.createComponent(AppHeaderComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('a').textContent).toContain('Exchange');
+  }));
+
 });
