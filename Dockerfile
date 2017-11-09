@@ -1,5 +1,5 @@
 FROM node:alpine
-EXPOSE 4200 8080
+EXPOSE 4200 4100
 MAINTAINER csanders@cccis.com
 
 COPY files/x-ui /run/x
