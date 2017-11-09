@@ -7,11 +7,11 @@ RUN chmod +x /run/x-ui/start_app.sh
 
 # Add distro dependencies
 RUN apk update && \
-    apk add python emacs curl ca-certificates
+    apk add python ca-certificates
 
 # Add npm dependencies 
 RUN npm install -g json-server
 RUN cd /run/x-ui && npm install
 
-#CMD /run/x/start_app.sh
-CMD sh
+CMD /run/x-ui/start_app.sh
+#CMD sh
