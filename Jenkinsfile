@@ -29,6 +29,8 @@ podTemplate(label: 'dcc',
 	  //   customImage.push()
 	  // }
 
+
+	    sh "ng test a"
 	    sh "docker build -t ${build_image_name} ."
 	    echo "Pushing ${build_image_name}"
 	    sh "docker login -u qorrect -p ccc_s4f3 && docker push ${build_image_name}"
