@@ -21,7 +21,7 @@ podTemplate(label: 'dcc',
 	try {
     
 	  docker.withRegistry("https://registry.hub.docker.com/",'dockerhub_credentials') {
-	    def short_branch = branch.substring(0,7)0
+	    def short_branch = branch.substring(0,7)
 	    def build_image_name = "qorrect/x-ui:${short_branch}"
 	    echo "Pushing ${build_image_name}"
 	    def customImage = docker.build(build_image_name)
