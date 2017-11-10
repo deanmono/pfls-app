@@ -1,9 +1,9 @@
 #!/usr/bin/env groovy
 
-podTemplate(label: 'dcc', containers: [containerTemplate(name: 'nodejs', image: 'node:alpine', ttyEnabled: true, command: 'cat')]) {
+podTemplate(label: 'dcc', containers: [containerTemplate(name: 'slack', image: 'appropriate/curl', ttyEnabled: true, command: 'cat')]) {
   node('dcc') {
     stage('build') {
-      container('nodejs') {
+      container('slack') {
 
 	branch = env.BRANCH_NAME
 	build_message = "${env.JOB_NAME} -- ${env.BUILD_URL} "
