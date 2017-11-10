@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-podTemplate(label: 'dcc', containers: [containerTemplate(name: 'slack', image: 'appropriate/curl', ttyEnabled: true, command: 'cat')]) {
+podTemplate(label: 'dcc', containers: [containerTemplate(name: 'slack', image: 'qorrect/docker-with-curl', ttyEnabled: true, command: 'cat')]) {
   node('dcc') {
     stage('build') {
       container('slack') {
