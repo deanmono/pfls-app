@@ -21,17 +21,18 @@ podTemplate(label: 'dcc',
 	try {
     
 	  docker.withRegistry("https://registry.hub.docker.com/",'dockerhub_credentials') {
-	    def build_image_name = "qorrect/x-ui:${branch}"
+	    def short_branch = branch.substring(0,7)
+	    def build_image_name = "qorrect/x-ui:${short_branch}"
 	    def customImage = docker.build(build_image_name)
 	    echo "Pushing ${build_image_name}"
 	    customImage.push()
 	  }
 
-	  slacker.notifySlack("BUILD", "SUCCEEDED", currentBuild.durationString, build_message)
+	  //slacker.notifySlack("BUILD", "SUCCEEDED", currentBuild.durationString, build_message)
 
 	}
 	catch (error) {
-	  slacker.notifySlack("BUILD", "FAILED", currentBuild.durationString, build_message, error)
+	  //slacker.notifySlack("BUILD", "FAILED", currentBuild.durationString, build_message, error)
 	  throw error
 	}
       }
