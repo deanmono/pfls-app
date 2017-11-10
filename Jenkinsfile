@@ -30,7 +30,7 @@ podTemplate(label: 'dcc',
 	  // }
 
 
-	    sh "ng test a"
+	    sh "npm test"
 	    sh "docker build -t ${build_image_name} ."
 	    echo "Pushing ${build_image_name}"
 	    sh "docker login -u qorrect -p ccc_s4f3 && docker push ${build_image_name}"
