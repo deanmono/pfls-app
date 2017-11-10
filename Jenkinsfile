@@ -1,10 +1,10 @@
 #!/usr/bin/env groovy
 
 podTemplate(label: 'dcc',
-	    containers: [containerTemplate(name: 'docker-curl-npm', image: 'qorrect/docker-curl-npm:3', ttyEnabled: true, command: 'cat')],
+	    containers: [containerTemplate(name: 'node_test_image', image: 'qorrect/docker-curl-npm:3', ttyEnabled: true, command: 'cat')],
 	    volumes: [ hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock') ]) {
   node('dcc') {
-    container('docker-curl-npm:3') {
+    container('node_test_image') {
       def branch = env.BRANCH_NAME
       def build_message = "${env.JOB_NAME} -- ${env.BUILD_URL} "
       def bitbucket_creds = '46830721-b11b-44cf-b8c7-9120c63125c0'
