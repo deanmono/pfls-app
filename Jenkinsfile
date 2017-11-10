@@ -1,11 +1,11 @@
 #!/usr/bin/env groovy
 
 podTemplate(label: 'dcc',
-	    containers: [containerTemplate(name: 'slack', image: 'qorrect/docker-with-curl', ttyEnabled: true, command: 'cat')],
+	    containers: [containerTemplate(name: 'docker-with-curl', image: 'qorrect/docker-with-curl', ttyEnabled: true, command: 'cat')],
 	       volumes: [ hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock') ]) {
   node('dcc') {
     stage('build') {
-      container('slack') {
+      container('docker-with-curl') {
 
 
 	sh "printenv"
@@ -21,10 +21,11 @@ podTemplate(label: 'dcc',
 	try {
     
 	  docker.withRegistry("https://registry.hub.docker.com/",'dockerhub_credentials') {
-	    def short_branch = branch.substring(0,7)
+	    def short_branch = branch.substring(0,7)0
 	    def build_image_name = "qorrect/x-ui:${short_branch}"
-	    def customImage = docker.build(build_image_name)
 	    echo "Pushing ${build_image_name}"
+	    def customImage = docker.build(build_image_name)
+
 	    customImage.push()
 	  }
 
