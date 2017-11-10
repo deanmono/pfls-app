@@ -1,16 +1,34 @@
-node {
+#!/usr/bin/env groovy
 
-  def branch = 'NGC-146-create-docker-image-for-x-ui'
-  stage ('build docker image' ) {
-        git branch: branch, 
-        credentialsId: 'BITBUCKET_CREDS', 
-        url: 'https://csanders_cccis@bitbucket.org/cccdrive/x-ui.git'
-        
-        
-        def customImage = docker.build("qorrect/x-ui:${env.BUILD_ID}")
-        customImage.push()
+podTemplate(label: 'dcc', containers: [containerTemplate(name: 'nodejs', image: 'node:alpine', ttyEnabled: true, command: 'cat')]) {
+  node('dcc') {
+    stage('build_and_deploy') {
+      container('nodejs') {
 
-      
+	branch = env.BRANCH_NAME
+	build_message = "${env.JOB_NAME} -- ${env.BUILD_URL} "
+
+	def slacker = fileLoader.fromGit('groovy/notifySlack.groovy',
+					 'https://bitbucket.org/cccdrive/scripts', 'master', BITBUCKET_CREDS, '')
+
+	checkout scm
+
+	// BUILD
+	try {
+    
+	  docker.withRegistry("https://registry.hub.docker.com/",'dockerhub_credentials') {
+	    def customImage = docker.build("qorrect/x-ui:${branch}")
+	    customImage.push()
+	  }
+
+	  slacker.notifySlack("BUILD", "SUCCEEDED", currentBuild.durationString, build_message)
+
+	}
+	catch (error) {
+	  slacker.notifySlack("BUILD", "FAILED", currentBuild.durationString, build_message, error)
+	  throw error
+	}
+      }
+    }
   }
-
 }
