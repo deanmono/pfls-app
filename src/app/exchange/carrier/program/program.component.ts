@@ -19,8 +19,8 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class ProgramComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-              private programService:ProgramService,
-              private location:Location,
+              private programService: ProgramService,
+              private location: Location,
               private router: Router,
               private modalService: NgbModal) { }
 
