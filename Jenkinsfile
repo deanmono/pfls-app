@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 podTemplate(label: 'dcc',
-	    containers: [containerTemplate(name: 'docker-with-curl', image: 'jenkinsci/jnlp-slave:3.7-1-alpine', ttyEnabled: true, command: 'cat')],
+	    containers: [containerTemplate(name: 'docker-with-curl', image: 'jenkinsci/slave', ttyEnabled: true, command: 'cat')],
 	       volumes: [ hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock') ]) {
   node('dcc') {
     stage('build') {
