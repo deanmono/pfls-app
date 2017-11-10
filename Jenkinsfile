@@ -2,7 +2,7 @@
 
 podTemplate(label: 'dcc', containers: [containerTemplate(name: 'nodejs', image: 'node:alpine', ttyEnabled: true, command: 'cat')]) {
   node('dcc') {
-    stage('build_and_deploy') {
+    stage('build') {
       container('nodejs') {
 
 	branch = env.BRANCH_NAME
