@@ -5,7 +5,6 @@ podTemplate(label: 'dcc',
 	       volumes: [ hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock') ]) {
   node('dcc') {
     stage('build') {
-      container('docker-with-curl') {
 
 
 	sh "printenv"
@@ -36,7 +35,7 @@ podTemplate(label: 'dcc',
 	  //slacker.notifySlack("BUILD", "FAILED", currentBuild.durationString, build_message, error)
 	  throw error
 	}
-      }
+      
     }
   }
 }
