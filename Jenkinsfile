@@ -7,8 +7,7 @@ podTemplate(label: 'dcc',
     stage('build') {
       container('slack') {
 
-	sh "git rev-parse --short HEAD > .git/commit-id"                        
-	commit_id = readFile('.git/commit-id')
+
 	sh "printenv"
 	branch = env.BRANCH_NAME
 	build_message = "${env.JOB_NAME} -- ${env.BUILD_URL} "
