@@ -1,10 +1,10 @@
 #!/usr/bin/env groovy
 
 podTemplate(label: 'dcc',
-	    containers: [containerTemplate(name: 'docker-with-curl', image: 'qorrect/docker-with-curl', ttyEnabled: true, command: 'cat')],
+	    containers: [containerTemplate(name: 'docker-curl-npm', image: 'qorrect/docker-curl-npm', ttyEnabled: true, command: 'cat')],
 	       volumes: [ hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock') ]) {
   node('dcc') {
-    container('docker-with-curl') {
+    container('docker-curl-npm') {
       stage('build') {
 
 
@@ -19,7 +19,7 @@ podTemplate(label: 'dcc',
 	checkout scm
       }
       stage('test') {
-	sh "npm test"
+	sh "npm run jest"
       }
       stage('deploy') {
 	// BUILD
