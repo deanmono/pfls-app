@@ -7,9 +7,9 @@ podTemplate(label: 'dcc', containers: [containerTemplate(name: 'nodejs', image: 
 
 	branch = env.BRANCH_NAME
 	build_message = "${env.JOB_NAME} -- ${env.BUILD_URL} "
-
+        bitbucket_creds = '46830721-b11b-44cf-b8c7-9120c63125c0'
 	def slacker = fileLoader.fromGit('groovy/notifySlack.groovy',
-					 'https://bitbucket.org/cccdrive/scripts', 'master', BITBUCKET_CREDS, '')
+					 'https://bitbucket.org/cccdrive/scripts', 'master', bitbucket_creds, '')
 
 	checkout scm
 
