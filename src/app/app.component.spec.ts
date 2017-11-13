@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {RouterTestingModule} from '@angular/router/testing'
-import {AppHeaderComponent} from './shared/app-header/app-header.component';
+import {AppHeaderComponent} from './shared/components/app-header/app-header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 

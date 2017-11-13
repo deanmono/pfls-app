@@ -11,6 +11,6 @@ export class AppHeaderComponent  {
     this.navbarCollapsed = true;
   }
 
-  public navbarCollapsed : boolean;
+  public navbarCollapsed: boolean;
 
 }
