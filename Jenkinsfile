@@ -21,10 +21,10 @@ podTemplate(label: 'dcc',
             stage('test') {
                 try {
                     sh "npm install && npm run jest"
-                    slacker.notifySlack("test", "succeeded", currentBuild.durationString, build_message)
+                    slacker.notifySlack("tests", "succeeded", currentBuild.durationString, build_message)
                 }
                 catch (error) {
-                    slacker.notifySlack("test", "failed", currentBuild.durationString, build_message, error)
+                    slacker.notifySlack("tests", "failed", currentBuild.durationString, build_message, error)
                     throw error
                 }
             }
