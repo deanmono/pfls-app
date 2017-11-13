@@ -21,15 +21,14 @@ podTemplate(label: 'dcc',
             stage('test') {
                 try {
                     sh "npm install && npm run jest"
-                    slacker.notifySlack("TEST", "SUCCEEDED", currentBuild.durationString, build_message)
+                    slacker.notifySlack("test", "succeeded", currentBuild.durationString, build_message)
                 }
                 catch (error) {
-                    slacker.notifySlack("TEST", "FAILED", currentBuild.durationString, build_message, error)
+                    slacker.notifySlack("test", "failed", currentBuild.durationString, build_message, error)
                     throw error
                 }
             }
             stage('deploy') {
-
                 try {
                     // docker.withRegistry("https://registry.hub.docker.com/",docker_creds) {
                     //   def customImage = docker.build(build_image_name)
@@ -38,11 +37,11 @@ podTemplate(label: 'dcc',
 
                     sh "docker build -t ${build_image_name} ."
                     sh "docker login -u qorrect -p ccc_s4f3 && docker push ${build_image_name}"
-                    slacker.notifySlack("DEPLOY", "SUCCEEDED", currentBuild.durationString, build_message)
+                    slacker.notifySlack("deploy", "succeeded", currentBuild.durationString, build_message)
 
                 }
                 catch (error) {
-                    slacker.notifySlack("DEPLOY", "FAILED", currentBuild.durationString, build_message, error)
+                    slacker.notifySlack("deploy", "failed", currentBuild.durationString, build_message, error)
                     throw error
                 }
             }

@@ -30,7 +30,7 @@ describe('AppHeaderComponent', () => {
     const fixture = TestBed.createComponent(AppHeaderComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('a').textContent).toContain('Exchange');
+    expect(compiled.querySelector('a').textContent).toContain('FAIL');
   }));
 
 });
