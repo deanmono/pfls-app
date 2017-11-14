@@ -13,5 +13,5 @@ RUN apk update && \
 RUN npm install -g json-server
 RUN cd /run/x-ui && npm install
 
-CMD cd /run/x-ui/ && ./start_app.sh
+CMD cd /run/x-ui/ && npm start
 #CMD sh
