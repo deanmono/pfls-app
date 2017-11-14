@@ -3,7 +3,6 @@ EXPOSE 4200 4100
 MAINTAINER csanders@cccis.com
 
 COPY . /run/x-ui
-RUN chmod +x /run/x-ui/start_app.sh
 
 # Add distro dependencies
 RUN apk update && \
