@@ -4,9 +4,10 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve | json-server --watch exchange.json --port 8080",
+    "start": "ng serve --host=0.0.0.0 | json-server --watch exchange.json --port 4100",
     "build": "ng build",
     "test": "jest --watch",
+    "jest": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
