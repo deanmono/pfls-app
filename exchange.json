@@ -104,5 +104,39 @@
       "beginDate": "2017-09-01",
       "expirationDate": "2017-12-01"
     }
+  ],
+  "devices":[
+  	  {
+		"id": 1,
+		"serialNumber": "123456789-12345",
+		"simId": "123456789",
+		"dateAdded": "2017-11-11",
+		"type": "One",
+		"active": true
+  	  },
+  	  {
+		"id": 2,
+		"serialNumber": "123456789-12346",
+		"simId": "123456790",
+		"dateAdded": "2017-11-12",
+		"type": "One",
+		"active": true
+  	  },
+  	  {
+		"id": 3,
+		"serialNumber": "123456789-12347",
+		"simId": "123456791",
+		"dateAdded": "2017-11-18",
+		"type": "Two",
+		"active": false
+  	  },
+  	  {
+		"id": 4,
+		"serialNumber": "223456789-12345",
+		"simId": "223456789",
+		"dateAdded": "2017-11-19",
+		"type": "Two",
+		"active": false
+  	  }
   ]
 }

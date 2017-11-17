@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfiguratorModule } from './configurator/configurator.module';
 import { ExchangeModule } from './exchange/exchange.module';
 import { ComponentsModule } from './shared/components/';
+import { ProgramsModule } from './programs/programs.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ComponentsModule } from './shared/components/';
     HttpModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    ComponentsModule
+    ComponentsModule,
+    ProgramsModule
     // ServiceModule.forRoot(),
     // StoreModule.provideStore(store)
     // Note that you must instrument after importing StoreModule
