@@ -1,4 +1,5 @@
 table.table-hover tbody tr.clickable:hover,
-.btn {
+.btn,
+span.clickable {
 	cursor: pointer;
 }
