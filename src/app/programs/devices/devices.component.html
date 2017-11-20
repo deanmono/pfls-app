@@ -1,11 +1,10 @@
 <div class="card m-4">
-  <h4 class="card-header">Manage Devices</h4>
+  <h4 class="card-header">Manage Devices <button type="button" class="btn btn-sm btn-primary float-right" title="Add Device"><i class="fa fa-plus" aria-hidden="true"></i></button></h4>
   <div class="card-block">
 
   <ngb-alert *ngIf="(devices | async)?.length==0" [dismissible]="false">
     No devices found.
   </ngb-alert>
-
 
     <form [formGroup]="searchForm">
       <div class="row mt-4">
@@ -70,23 +69,37 @@
   <table class="table table-bordered table-hover">
     <thead>
       <tr>
-        <th>Device ID</th>
-        <th>Serial Number</th>
-        <th>Sim ID</th>
+        <th>Device ID &nbsp;<span class="clickable"><i class="fa fa-sort" aria-hidden="true"></i></span>
+        </th>
+        <th>Serial Number &nbsp;<span class="clickable"><i class="fa fa-sort" aria-hidden="true"></i></span>
+        </th>
+        <th>Sim ID &nbsp;<span class="clickable"><i class="fa fa-sort" aria-hidden="true"></i></span>
+        </th>
         <th>Active</th>
         <th>Date Added</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let device of devices | async" (click)="onSelectDevice(device.id)" class="clickable">
+      <tr *ngFor="let device of devices | async">
         <td>{{ device.id }}</td>
         <td>{{ device.serialNumber }}</td>
         <td>{{ device.simId }}</td>
         <td>{{ device.active }}</td>
         <td>{{ device.dateAdded }}</td>
+        <td>
+          <button type="button" title="Edit" (click)="onSelectDevice(device.id)" class="btn btn-primary btn-sm">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+          <button type="button" title="Inactive" (click)="onSelectDevice(device.id)" class="btn btn-primary btn-sm">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
+
+  <ngb-pagination [collectionSize]="1" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
 
 </div>
 </div>
