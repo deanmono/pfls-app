@@ -1,0 +1,39 @@
+
+<div class="card m-4">
+  <h4 class="card-header">Programs <button type="button" class="btn btn-sm btn-primary float-right" title="Add Program">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    </button></h4>
+  <div class="card-block">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>ID &nbsp;<span class="clickable"><i class="fa fa-sort" aria-hidden="true"></i></span>
+          </th>
+          <th>Name &nbsp;<span class="clickable"><i class="fa fa-sort" aria-hidden="true"></i></span>
+          </th>
+          <th>Active &nbsp;<span class="clickable"><i class="fa fa-sort" aria-hidden="true"></i></span>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let program of programs | async">
+          <td>{{ program.id }}</td>
+          <td>{{ program.name }}</td>
+          <td>{{ program.active }}</td>
+          <td>
+            <button *ngIf="!program.active" type="button" title="Edit" (click)="onSelect(program.id)" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button *ngIf="program.active" type="button" title="Inactivate" (click)="onSelect(program.id)" class="btn btn-primary btn-sm">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ngb-pagination [collectionSize]="1" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+
+  </div>
+</div>
