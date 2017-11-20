@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
     selector: 'app-login',
@@ -9,22 +9,30 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
     loginForm = new FormGroup({});
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder) {
+    }
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
-                   email: new FormControl('', [ Validators.required, Validators.email ]),
-                   password: new FormControl('', [ Validators.minLength(5)])
-       });
+            email: new FormControl('', [Validators.required, Validators.email]),
+            password: new FormControl('', [Validators.minLength(5)])
+        });
     }
-    get email() { return this.loginForm.get('email'); }
-    get password() { return this.loginForm.get('password'); }
+
+    get email() {
+        return this.loginForm.get('email');
+    }
+
+    get password() {
+        return this.loginForm.get('password');
+    }
 
 
     login() {
+        console.log('Hey Ima log you in');
     }
 
-    cancel () {
-        console.log('Hey im cancelling now, this should eventually use a shared goBack function once a BaseController is factored out  ');
+    cancel() {
+        console.log('Hey im cancelling now, this should eventually use a shared goBack function once a BaseController is factored out');
     }
 }
