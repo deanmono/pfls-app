@@ -8,7 +8,7 @@ import { DeviceGroupsComponent } from './device-groups/device-groups.component';
 import { ManageProgramComponent } from './manage-program/manage-program.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'programs/devices', pathMatch: 'full' },
+  { path: '', redirectTo: 'programs/manageprograms', pathMatch: 'full' },
   { path: 'programs/devices', component: DevicesComponent },
   { path: 'programs/manageprograms', component: ManageProgramsComponent },
   { path: 'programs/manageprograms/:id', component: ManageProgramComponent },
