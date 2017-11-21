@@ -22,6 +22,9 @@
           <td>{{ program.name }}</td>
           <td>{{ program.active }}</td>
           <td>
+            <button type="button" title="View" (click)="viewDetail(program.id)" class="btn btn-primary btn-sm">
+              <i class="fa fa-info" aria-hidden="true"></i>
+            </button>
             <button *ngIf="!program.active" type="button" title="Edit" (click)="onSelect(program.id)" class="btn btn-primary btn-sm">
               <i class="fa fa-pencil" aria-hidden="true"></i>
             </button>

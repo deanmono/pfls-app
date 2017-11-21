@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ManageProgramsComponent } from './manage-programs/manage-programs.component';
 import { DeviceGroupsComponent } from './device-groups/device-groups.component';
+import { ManageProgramComponent } from './manage-program/manage-program.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { DeviceGroupsComponent } from './device-groups/device-groups.component';
   ],
   declarations: [DevicesComponent,
 	ManageProgramsComponent,
-	DeviceGroupsComponent
+	DeviceGroupsComponent,
+	ManageProgramComponent
   ],
   providers: [
     DevicesService,
