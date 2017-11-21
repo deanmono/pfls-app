@@ -1,26 +1,23 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeviceGroupsComponent } from './device-groups.component';
+import { ManageProgramComponent } from './manage-program.component';
 import { RouterTestingModule } from '@angular/router/testing'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { DeviceGroupsService } from './device-groups.service';
-
-describe('DeviceGroupsComponent', () => {
-  let component: DeviceGroupsComponent;
-  let fixture: ComponentFixture<DeviceGroupsComponent>;
+describe('ManageProgramComponent', () => {
+  let component: ManageProgramComponent;
+  let fixture: ComponentFixture<ManageProgramComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeviceGroupsComponent ],
-      providers: [DeviceGroupsService],
+      declarations: [ ManageProgramComponent ],
       imports: [RouterTestingModule, NgbModule.forRoot()],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeviceGroupsComponent);
+    fixture = TestBed.createComponent(ManageProgramComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

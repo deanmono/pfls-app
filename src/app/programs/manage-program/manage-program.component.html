@@ -1,0 +1,64 @@
+<div class="card m-4">
+  <h4 class="card-header">Manage Program</h4>
+  <div class="card-block">
+
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th>Program ID</th>
+          <th>Name</th>
+          <th>Active</th>
+        </tr>
+        <tr>
+          <td>{{program.id}}</td>
+          <td>{{program.name}}</td>
+          <td>{{program.active}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th>Scoring Function</th>
+          <td>Main Scoring Function</td>
+          <td>
+            <button type="button" title="Edit" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th>Device Group</th>
+          <td>A Device Group</td>
+          <td>
+            <button type="button" title="Edit" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th>User Group</th>
+          <td>Some User Group</td>
+          <td>
+            <button type="button" title="Edit" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th>Policy</th>
+          <td>Policy Name</td>
+          <td>
+            <button type="button" title="Edit" class="btn btn-primary btn-sm">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<button (click)="goBack()" class="btn btn-primary">Back</button>
