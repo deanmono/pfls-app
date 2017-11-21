@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host=0.0.0.0 | json-server --watch exchange.json --port 4100",
+    "start": "ng serve --public --disable-host-check --host=0.0.0.0 | json-server --watch exchange.json --port 4100",
     "build": "ng build",
     "test": "jest --watch",
     "jest": "jest",
