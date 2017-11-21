@@ -11,10 +11,13 @@ import { ConfiguratorModule } from './configurator/configurator.module';
 import { ExchangeModule } from './exchange/exchange.module';
 import { ComponentsModule } from './shared/components/';
 import { ProgramsModule } from './programs/programs.module';
+import { LoginComponent } from './login/login.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     ConfiguratorModule,
@@ -24,7 +27,9 @@ import { ProgramsModule } from './programs/programs.module';
     AppRoutingModule,
     NgbModule.forRoot(),
     ComponentsModule,
-    ProgramsModule
+    ProgramsModule,
+    FormsModule,
+    ReactiveFormsModule
     // ServiceModule.forRoot(),
     // StoreModule.provideStore(store)
     // Note that you must instrument after importing StoreModule
