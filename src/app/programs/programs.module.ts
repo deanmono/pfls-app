@@ -6,12 +6,14 @@ import { DevicesComponent } from './devices/devices.component';
 import { DevicesService } from './devices/devices.service';
 import { ProgramsService } from './programs.service';
 import { DeviceGroupsService } from './device-groups/device-groups.service';
+import { PoliciesService } from './manage-policies/policies.service';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ManageProgramsComponent } from './manage-programs/manage-programs.component';
 import { DeviceGroupsComponent } from './device-groups/device-groups.component';
 import { ManageProgramComponent } from './manage-program/manage-program.component';
+import { ManagePoliciesComponent } from './manage-policies/manage-policies.component';
 
 
 @NgModule({
@@ -24,12 +26,14 @@ import { ManageProgramComponent } from './manage-program/manage-program.componen
   declarations: [DevicesComponent,
 	ManageProgramsComponent,
 	DeviceGroupsComponent,
-	ManageProgramComponent
+	ManageProgramComponent,
+	ManagePoliciesComponent
   ],
   providers: [
     DevicesService,
     ProgramsService,
-    DeviceGroupsService
+    DeviceGroupsService,
+    PoliciesService
   ]
 })
 export class ProgramsModule { }
