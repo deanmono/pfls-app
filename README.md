@@ -3,8 +3,7 @@
 ### What is this repository for? ###
 
 * Quick summary
-This repo contains the CCCX (Exchange) UI project. More information can be found here:
-https://cccdrivetech.atlassian.net/wiki/spaces/CQ/overview
+This repo contains the Eratos UI project. More information can be found here:
 * Version
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
