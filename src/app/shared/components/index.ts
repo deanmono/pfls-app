@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { SignupComponent } from './signup/signup.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 
 export const COMPONENTS = [
     AppHeaderComponent,
@@ -15,12 +13,12 @@ export const COMPONENTS = [
 @NgModule({
     imports: [
         RouterModule,
-        CommonModule,
-        NgbModule
+        CommonModule
         // TranslateModule,
     ],
     declarations: COMPONENTS,
-    exports: COMPONENTS
+    exports: COMPONENTS,
+    entryComponents: COMPONENTS
 })
 
 export class ComponentsModule { }

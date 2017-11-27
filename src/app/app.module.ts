@@ -39,7 +39,9 @@ import { LoginComponent } from './login/login.component';
     // StoreModule.provideStore(store)
     // Note that you must instrument after importing StoreModule
   ],
-  providers: [BackandService],
+  providers: [
+      BackandService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

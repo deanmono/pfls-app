@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/Rx';
 import { BackandService } from '@backand/angular2-sdk';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-signup',
@@ -17,31 +18,25 @@ export class SignupComponent implements OnInit {
     ngOnInit() {
     }
 
-    constructor(private backand: BackandService) {}
+    constructor(
+        private backand: BackandService,
+        public activeModal: NgbActiveModal
+    ) {}
 
     public signUp() {
         if (this.signUpPassword !== this.confirmPassword) {
             alert('Passwords should match');
             return;
         }
-        this.backand.signup(this.email, this.signUpPassword, this.confirmPassword, this.firstName, this.lastName)
-            .then((data: any) => {
-                    alert('Sign up succeeded');
-                    this.email = this.signUpPassword = this.confirmPassword = this.firstName = this.lastName = '';
-                },
-                (err: any) => {
-                    console.log(err);
-                }
-            );
-    }
 
-    public socialSignin(provider: string) {
-        this.backand.socialSignin(provider)
+        this.backand.signup(this.firstName, this.lastName, this.email, this.signUpPassword, this.confirmPassword)
             .then((data: any) => {
-                    console.log('Sign up succeeded with:' + provider);
+                    this.email = this.signUpPassword = this.confirmPassword = this.firstName = this.lastName = '';
+                    this.activeModal.close('Close click')
+                    console.log(data);
                 },
                 (err: any) => {
-                    console.log(err);
+                    console.error(err);
                 }
             );
     }
