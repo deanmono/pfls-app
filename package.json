@@ -6,13 +6,12 @@
     "ng": "ng",
     "start": "ng serve --public --disable-host-check --host=0.0.0.0",
     "build": "ng build",
-    "test": "jest --watch",
-    "jest": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/core": "0.0.28",
     "@angular/animations": "^5.1.0",
     "@angular/common": "^5.1.0",
     "@angular/compiler": "^5.1.0",
