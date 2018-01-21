@@ -8,14 +8,16 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng build --aot -prod",
+    "start": "node server.js",
     "dev": "ng serve --public --disable-host-check --host=0.0.0.0",
     "build": "ng build",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "1.6.1",
     "@angular-devkit/core": "0.0.28",
     "@angular/animations": "^5.1.0",
     "@angular/common": "^5.1.0",
@@ -28,8 +30,10 @@
     "@angular/router": "^5.1.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
     "core-js": "^2.4.1",
+    "express": "^4.16.2",
     "jquery": "^1.9.1",
     "rxjs": "^5.4.2",
+    "typescript": "~2.4",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
@@ -40,6 +44,7 @@
     "@types/node": "~6.0.60",
     "@types/socket.io-client": "^1.4.32",
     "codelyzer": "~3.2.0",
+    "enhanced-resolve": "^3.3.0",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4"
