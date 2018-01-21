@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from "./login/login.component";
 
 export const COMPONENTS = [
     AppHeaderComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent
 ];
 
 @NgModule({

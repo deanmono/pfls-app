@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title">Sign Up</h4>
+  <h4 class="modal-title">Login</h4>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -7,46 +7,78 @@
 <div class="modal-body">
   <div class="row">
     <div class="col-md-12">
+
+      <!--
+      <div>
+        <label *ngIf="auth_status == 'OK'"><button type="button" class="btn btn-warning" (click)="signOut()">Sign Out</button>{{loggedInUser}}</label>
+      </div>
+      -->
+
       <form>
         <div class="form-group">
-          <label for="email" class="col-xs-2 col-form-label">Email</label>
+          <label for="username" class="col-xs-2 col-form-label">Username</label>
           <div class="col-xs-10">
-            <input class="form-control" type="email" [value]="email" (input)="email = $event.target.value" id="email">
+            <input class="form-control" type="text" [value]="username" (input)="username = $event.target.value" id="username">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="first-name" class="col-xs-2 col-form-label">First Name</label>
+          <label for="password" class="col-xs-2 col-form-label">Password</label>
           <div class="col-xs-10">
-            <input class="form-control" type="text" [value]="firstName" (input)="firstName = $event.target.value" id="first-name">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="last-name" class="col-xs-2 col-form-label">Last Name</label>
-          <div class="col-xs-10">
-            <input class="form-control" type="text" [value]="lastName" (input)="lastName = $event.target.value" id="last-name">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="newPassword" class="col-xs-2 col-form-label">Password</label>
-          <div class="col-xs-10">
-            <input class="form-control" type="password" [value]="signUpPassword" (input)="signUpPassword = $event.target.value" id="signUpPassword">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="confirmPassword" class="col-xs-2 col-form-label">Confirm Password</label>
-          <div class="col-xs-10">
-            <input class="form-control" type="password" [value]="confirmPassword" (input)="confirmPassword = $event.target.value" id="confirmPassword">
+            <input class="form-control" type="password" [value]="password" (input)="password = $event.target.value" id="password">
           </div>
         </div>
       </form>
+      <!-- <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary" (click)="getAuthTokenSimple()">Token Auth</button>
+        <button type="button" class="btn btn-info" (click)="useAnonymousAuth()">Anonymous Auth</button>
+      </div>
+
+      <div *ngIf="auth_status">
+        <div class="alert alert-success" role="alert">
+          <label>Using {{auth_type}} authentication</label>
+        </div>
+        <div class="alert alert-danger" role="alert">
+          <label [class.alert]="is_auth_error" [class.alert-danger]="is_auth_error">{{auth_status}}</label>
+        </div>
+      </div>
+
+      <h2>Change Password</h2>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="form-group row">
+            <label for="oldPassword" class="col-xs-2 col-form-label">Old Password</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="password" [value]="oldPassword" (input)="oldPassword = $event.target.value" id="oldPassword">
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="form-group row">
+            <label for="newPassword" class="col-xs-2 col-form-label">New Password</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="password" [value]="newPassword" (input)="newPassword = $event.target.value" id="newPassword">
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="form-group row">
+            <label for="confirmPassword" class="col-xs-2 col-form-label">Confirm Password</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="password" [value]="confirmNewPassword" (input)="confirmNewPassword = $event.target.value"
+                     id="confirmPassword">
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <button type="button" class="btn btn-primary" (click)="changePassword()">Change Password</button>
+        </li>
+      </ul>
+      -->
     </div>
   </div>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary" (click)="signUp()">Sign Up</button>
+  <button type="button" class="btn btn-primary" (click)="getAuthTokenSimple()">Sign In</button>
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
 </div>

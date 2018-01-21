@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import 'rxjs/Rx';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+    constructor(
+        public activeModal: NgbActiveModal
+    ) {}
 
-  ngOnInit() {
-  }
+    username: string = '';
+    password: string = '';
+    auth_type: string = "N/A";
+    is_auth_error: boolean = false;
+    auth_status: string = null;
+    loggedInUser: string = '';
+
+
+    oldPassword: string = '';
+    newPassword: string = '';
+    confirmNewPassword: string = '';
+
+    ngOnInit() {
+
+    }
+
+    public getAuthTokenSimple() {
+        this.auth_type = 'Token';
+    }
+
+
+    public signOut() {
+        this.auth_status = null;
+    }
+
+    public changePassword() {
+        if (this.newPassword !== this.confirmNewPassword) {
+            alert('Passwords should match');
+            return;
+        }
+    }
 
 }

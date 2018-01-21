@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import {
     FormsModule,
@@ -10,29 +10,30 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BackandService } from '@backand/angular2-sdk';
 
 import { ConfiguratorModule } from './configurator/configurator.module';
-import { ExchangeModule } from './exchange/exchange.module';
 import { ComponentsModule } from './shared/components/';
-import { ProgramsModule } from './programs/programs.module';
+
 import { LoginComponent } from './login/login.component';
+import { HttpService } from "./shared/services/http.service";
+import { HomeComponent } from './home/home.component';
+import { ArbitrageComponent } from './arbitrage/arbitrage.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent,
+    ArbitrageComponent,
   ],
   imports: [
     ConfiguratorModule,
-    ExchangeModule,
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     ComponentsModule,
-    ProgramsModule,
     FormsModule,
     ReactiveFormsModule
     // ServiceModule.forRoot(),
@@ -40,7 +41,7 @@ import { LoginComponent } from './login/login.component';
     // Note that you must instrument after importing StoreModule
   ],
   providers: [
-      BackandService
+      HttpService
   ],
   bootstrap: [AppComponent]
 })
