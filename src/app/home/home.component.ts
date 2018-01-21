@@ -12,7 +12,7 @@ import { HttpService } from "../shared/services/http.service";
 })
 export class HomeComponent implements OnInit {
 
-  private exchangesList: Array;
+  private exchangesList: any;
   private exchanges: any;
   public exchange: any;
   public exchangeSelected: any;
