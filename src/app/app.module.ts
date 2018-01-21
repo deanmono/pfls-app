@@ -16,6 +16,7 @@ import { ComponentsModule } from './shared/components/';
 
 import { LoginComponent } from './login/login.component';
 import { HttpService } from "./shared/services/http.service";
+import { ProductsService } from "./shared/services/products.service";
 import { HomeComponent } from './home/home.component';
 
 
@@ -39,7 +40,8 @@ import { HomeComponent } from './home/home.component';
     // Note that you must instrument after importing StoreModule
   ],
   providers: [
-      HttpService
+      HttpService,
+      ProductsService
   ],
   bootstrap: [AppComponent]
 })

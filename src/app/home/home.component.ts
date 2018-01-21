@@ -4,11 +4,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import { HttpService } from "../shared/services/http.service";
+import { ProductsService } from "../shared/services/products.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
@@ -22,7 +23,12 @@ export class HomeComponent implements OnInit {
   public fromCoin: string;
   public coinExchangeOutput;
 
-  constructor(private httpService: HttpService) {
+  public products: any;
+
+  constructor(
+      private httpService: HttpService,
+      private productsService: ProductsService
+  ) {
     this.exchangesList = [];
     this.exchangeSelected = [];
 
@@ -33,6 +39,10 @@ export class HomeComponent implements OnInit {
           this.exchangesList.push(exchangeFromList);
       }
       this.exchangesList.sort();
+    });
+
+    this.productsService.getProducts().subscribe((resp) => {
+      this.products = resp;
     });
   }
 
