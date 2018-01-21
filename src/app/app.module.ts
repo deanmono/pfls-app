@@ -17,15 +17,13 @@ import { ComponentsModule } from './shared/components/';
 import { LoginComponent } from './login/login.component';
 import { HttpService } from "./shared/services/http.service";
 import { HomeComponent } from './home/home.component';
-import { ArbitrageComponent } from './arbitrage/arbitrage.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    ArbitrageComponent,
+    HomeComponent
   ],
   imports: [
     ConfiguratorModule,

@@ -12,7 +12,7 @@ import { HttpService } from "../shared/services/http.service";
 })
 export class HomeComponent implements OnInit {
 
-  private exchangesList: any;
+  public exchangesList: any;
   private exchanges: any;
   public exchange: any;
   public exchangeSelected: any;
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   public text: any;
   public toCoin: string;
   public fromCoin: string;
-  private coinExchangeOutput;
+  public coinExchangeOutput;
 
   constructor(private httpService: HttpService) {
     this.exchangesList = [];
