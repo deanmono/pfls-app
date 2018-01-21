@@ -8,10 +8,13 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --public --disable-host-check --host=0.0.0.0",
+    "start": "ng build",
+    "start-dev": "ng serve --public --disable-host-check --host=0.0.0.0",
     "build": "ng build",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "cd src/app && npm install",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
