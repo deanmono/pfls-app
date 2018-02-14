@@ -3,7 +3,7 @@
 ### What is this repository for? ###
 
 * Quick summary
-This repo contains the Eratos UI project. More information can be found here:
+This repo contains the pfls-app project. More information can be found here:
 * Version
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
@@ -13,7 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `npm install -g @angular/cli` to install Anguler CLI.
 
-After cloning the x-ui project, run `npm install` from within the x-ui directory.  This only needs to be done once, or when new modules are added to the project.
+After cloning the pfls-app project, run `npm install` from within the pfls-app directory.  This only needs to be done once, or when new modules are added to the project.
 
 #### Development server
 
