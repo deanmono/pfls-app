@@ -2,35 +2,57 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import 'rxjs/Rx';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { AuthService } from "../../services/auth.service";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+    public token: string;
 
     constructor(
-        public activeModal: NgbActiveModal
-    ) {}
+        public activeModal: NgbActiveModal,
+        public auth: AuthService
+    ) {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.token = currentUser && currentUser.token;
+    }
 
-    username: string = '';
-    password: string = '';
-    auth_type: string = "N/A";
-    is_auth_error: boolean = false;
+    username = '';
+    password = '';
     auth_status: string = null;
-    loggedInUser: string = '';
 
-
-    oldPassword: string = '';
-    newPassword: string = '';
-    confirmNewPassword: string = '';
+    newPassword = '';
+    confirmNewPassword = '';
 
     ngOnInit() {
 
     }
 
     public getAuthTokenSimple() {
-        this.auth_type = 'Token';
+        this.auth.getToken(this.username, this.password).subscribe((resp) => {
+            console.log('login', resp);
+            this.token = resp;
+
+            const token = resp.token;
+            if (token) {
+                // set token property
+                this.token = token;
+
+                // store username and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify({ username: this.username, token: token }));
+
+                // return true to indicate successful login
+                return true;
+            } else {
+                // return false to indicate failed login
+                return false;
+            }
+        });
+
+        this.activeModal.close();
     }
 
 

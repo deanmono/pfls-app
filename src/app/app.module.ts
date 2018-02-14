@@ -11,23 +11,21 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { ConfiguratorModule } from './configurator/configurator.module';
 import { ComponentsModule } from './shared/components/';
 
-import { LoginComponent } from './login/login.component';
 import { HttpService } from "./shared/services/http.service";
 import { ProductsService } from "./shared/services/products.service";
+import { AuthService } from "./shared/services/auth.service";
 import { HomeComponent } from './home/home.component';
+import { ConfigService } from "./shared/services/config.service";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     HomeComponent
   ],
   imports: [
-    ConfiguratorModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -41,7 +39,9 @@ import { HomeComponent } from './home/home.component';
   ],
   providers: [
       HttpService,
-      ProductsService
+      ProductsService,
+      AuthService,
+      ConfigService
   ],
   bootstrap: [AppComponent]
 })

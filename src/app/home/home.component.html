@@ -39,7 +39,7 @@
           <div class="card" style="width: 18rem; float: left;" *ngFor="let product of products">
             <img class="card-img-top" src="{{ product.acf.product_image }}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">{{ product.title.rendered}} <span class="badge badge-secondary">${{ product.acf.product_price }}</span></h5>
+              <h5 class="card-title">{{ product.title.rendered }} <span class="badge badge-secondary">${{ product.acf.product_price }}</span></h5>
               <p class="card-text">{{ product.acf.product_description }}</p>
               <a href="#" class="btn btn-primary">Purchase</a>
             </div>
